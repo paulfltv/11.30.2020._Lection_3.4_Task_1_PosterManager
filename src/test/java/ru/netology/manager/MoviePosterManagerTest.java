@@ -70,19 +70,6 @@ class MoviePosterManagerTest {
 	}
 
 	@Test
-	public void shouldShowOneMovie() {
-		MoviePosterManager manager = new MoviePosterManager(10);
-		MoviePoster first = new MoviePoster(
-				1, 1, "Bloodshot", "action", 16, true, 1);
-
-		manager.add(first);
-
-		MoviePoster[] actual = manager.getAll();
-		MoviePoster[] expected = new MoviePoster[]{first};
-		assertArrayEquals(expected, actual);
-	}
-
-	@Test
 	public void shouldShowEmptyPoster() {
 		MoviePosterManager manager = new MoviePosterManager();
 
