@@ -4,8 +4,8 @@ import ru.netology.domain.MoviePoster;
 class MoviePosterManager {
 
 	int movieLimit = 10;
-	private MoviePoster[] items = new MoviePoster[0];
 
+	private MoviePoster[] items = new MoviePoster[0];
 
 	public MoviePosterManager() {
 	}
@@ -38,9 +38,17 @@ class MoviePosterManager {
 		}
 		return result;
 	}
+
 	public MoviePoster[] getLast() {
-		MoviePoster[] result = new MoviePoster[items.length];
-		for (int i = items.length - 5; i < result.length; i++) {
+		int temp = items.length;
+		if (temp < movieLimit) {
+			temp = 10;
+		}
+		if (temp > movieLimit) {
+			temp = 10;
+		}
+		MoviePoster[] result = new MoviePoster[temp];
+		for (int i = 0; i < result.length; i++) {
 			int index = items.length - i - 1;
 			result[i] = items[index];
 		}
