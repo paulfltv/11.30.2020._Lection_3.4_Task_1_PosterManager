@@ -40,14 +40,14 @@ class MoviePosterManager {
 	}
 
 	public MoviePoster[] getLast() {
-		int temp = items.length;
-		if (temp < movieLimit) {
-			temp = 10;
+		int length = items.length;
+		if (length < movieLimit) {
+			length = movieLimit;
 		}
-		if (temp > movieLimit) {
-			temp = 10;
+		if (length > movieLimit) {
+			length = movieLimit;
 		}
-		MoviePoster[] result = new MoviePoster[temp];
+		MoviePoster[] result = new MoviePoster[length];
 		for (int i = 0; i < result.length; i++) {
 			int index = items.length - i - 1;
 			result[i] = items[index];
