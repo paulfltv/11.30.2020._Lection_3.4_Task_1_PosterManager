@@ -17,6 +17,7 @@ class MoviePosterManager {
 	public int getMovieLimit() {
 		return movieLimit;
 	}
+
 	public void setMovieLimit(int movieLimit) {
 		this.movieLimit = movieLimit;
 	}
@@ -40,19 +41,21 @@ class MoviePosterManager {
 	}
 
 	public MoviePoster[] getLast() {
+
 		int length = items.length;
-		if (length < movieLimit) {
+
+		if (length >= movieLimit) {
 			length = movieLimit;
+		} else {
+			return items;
 		}
-		if (length > movieLimit) {
-			length = movieLimit;
+
+			MoviePoster[] result = new MoviePoster[length];
+			for (int i = 0; i < result.length; i++) {
+				int index = items.length - i - 1;
+				result[i] = items[index];
+			}
+			return result;
 		}
-		MoviePoster[] result = new MoviePoster[length];
-		for (int i = 0; i < result.length; i++) {
-			int index = items.length - i - 1;
-			result[i] = items[index];
-		}
-		return result;
-	}
 }
 
