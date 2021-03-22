@@ -1,6 +1,4 @@
 package ru.netology.manager;
-import lombok.Data;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.MoviePoster;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
