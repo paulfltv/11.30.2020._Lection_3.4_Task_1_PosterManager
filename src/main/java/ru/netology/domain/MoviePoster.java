@@ -15,5 +15,4 @@ public class MoviePoster {
 	private String movieGenre;
 	private int ageLimit;
 	private boolean movieRental;
-	private int movieCount;
 }
