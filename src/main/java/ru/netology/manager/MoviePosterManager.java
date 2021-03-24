@@ -1,7 +1,6 @@
 package ru.netology.manager;
-import ru.netology.domain.MoviePoster;
 
-import java.util.Arrays;
+import ru.netology.domain.MoviePoster;
 
 class MoviePosterManager {
 
@@ -47,12 +46,11 @@ class MoviePosterManager {
 		if (length >= movieLimit) {
 			length = movieLimit;
 		}
-			MoviePoster[] result = new MoviePoster[length];
-			for (int i = 0; i < result.length; i++) {
-				int index = items.length - i - 1;
-				result[i] = items[index];
-			}
-			return result;
+		MoviePoster[] result = new MoviePoster[length];
+		for (int i = 0; i < result.length; i++) {
+			int index = items.length - i - 1;
+			result[i] = items[index];
 		}
+		return result;
+	}
 }
-

@@ -1,6 +1,8 @@
 package ru.netology.manager;
+
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.MoviePoster;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class MoviePosterManagerTest {
