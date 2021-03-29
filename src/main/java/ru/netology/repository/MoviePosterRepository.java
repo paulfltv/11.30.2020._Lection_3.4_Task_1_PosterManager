@@ -3,7 +3,7 @@ package ru.netology.repository;
 import ru.netology.domain.MoviePoster;
 
 public class MoviePosterRepository {
-		private MoviePoster[] items = new MoviePoster[0];
+	private MoviePoster[] items = new MoviePoster[0];
 
 	public void add(MoviePoster item) {
 		int length = items.length + 1;
@@ -23,43 +23,47 @@ public class MoviePosterRepository {
 		return result;
 	}
 
-		public void save(MoviePoster item) {
-			int length = items.length + 1;
-			MoviePoster[] tmp = new MoviePoster[length];
-			System.arraycopy(items, 0, tmp, 0, items.length);
-			int lastIndex = tmp.length - 1;
-			tmp[lastIndex] = item;
-			items = tmp;
-		}
+	public void save(MoviePoster item) {
+		int length = items.length + 1;
+		MoviePoster[] tmp = new MoviePoster[length];
+		System.arraycopy(items, 0, tmp, 0, items.length);
+		int lastIndex = tmp.length - 1;
+		tmp[lastIndex] = item;
+		items = tmp;
+	}
 
-		public MoviePoster[] findAll() {
-			return items;
-		}
+	public MoviePoster findById(int id) {
 
-		public void findById(int id) {
-			int length = items.length;
-			MoviePoster[] tmp = new MoviePoster[length];
-			int index = 0;
-			for (MoviePoster item : items) {
-				if (item.getId() != id) {
-					tmp[index] = item;
-				} else {
-					return;
-				}
+		for (MoviePoster item : items) {
+			if (item.getId() == id) {
+				return item;
 			}
-			items = tmp;
 		}
+		return null;
+	}
 
-		public void removeById(int id) {
-			int length = items.length - 1;
-			MoviePoster[] tmp = new MoviePoster[length];
-			int index = 0;
-			for (MoviePoster item : items) {
-				if (item.getId() != id) {
-					tmp[index] = item;
-					index++;
-				}
+	public MoviePoster[] findAll() {
+		return items;
+	}
+
+	public void removeById(int id) {
+		int length = items.length - 1;
+		MoviePoster[] tmp = new MoviePoster[length];
+		int index = 0;
+		for (MoviePoster item : items) {
+			if (item.getId() != id) {
+				tmp[index] = item;
+				index++;
 			}
-			items = tmp;
 		}
+		items = tmp;
+	}
+
+	public void removeAll(MoviePoster[] items, MoviePoster value) {
+		int length = items.length;
+		if (length > 0)
+			items[0] = value;
+		for (int i = 1; i < length; i += i)
+			System.arraycopy(items, 0, items, i, Math.min((length - i), i));
+	}
 }
